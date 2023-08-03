@@ -32,7 +32,7 @@ const CONFIG = {
 
   ARTICLE_RELATE_POSTS: true, // 相关文章推荐
   ARTICLE_COPYRIGHT: true, // 文章版权声明
-  ARTICLE_INFO: true // 显示文章信息
+  ARTICLE_INFO: false // 显示文章信息
 
 }
 
