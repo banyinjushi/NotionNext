@@ -15,23 +15,15 @@ export const ArticleInfo = (props) => {
             <div className="font-bold text-3xl text-black dark:text-white">
             {post?.title}
             </div>
-
             {post?.type !== 'Page' && <>
-            <nav className="flex mt-7 items-start text-gray-500 dark:text-gray-400">
-            <div className="flex mb-4">
-              <a href={BLOG.CONTACT_GITHUB || '#'} className="flex">
-                <Image
-                  alt={BLOG.author}
-                  width={24}
-                  height={24}
-                  src={`https://gravatar.com/avatar/${emailHash}`}
-                  className="rounded-full"
-                />
-                <p className="ml-2 md:block">{BLOG.author}</p>
-              </a>
-              <span className="block">&nbsp;/&nbsp;</span>
-            </div>
-            <div className="mr-2 mb-4 md:ml-0">
+            <nav className="flex mt-4 items-start text-gray-500 dark:text-gray-400">
+            {/* <div className="ml-0 md:block" style={{ color: '#586c96' }} >DoRight</div> */}
+            <a href="../aboutme" className="ml-0 md:block" style={{ color: '#586c96' }}>DoRight</a>
+            <div style={{ margin: '0 7px' }}> &nbsp; </div> 
+            <a href="../" className="ml-0 md:block" style={{ color: '#586c96' }}>须臾所思</a>
+            {/* <div className="ml-0 md:block" style={{ color: '#586c96' }} >须臾所思</div> */}
+            <div style={{ margin: '0 7px' }}> &nbsp; </div> 
+            <div className="mr-0 mb-4 md:ml-0">
               {post?.publishDay}
             </div>
             {post?.tags && (
@@ -41,11 +33,6 @@ export const ArticleInfo = (props) => {
                 ))}
               </div>
             )}
-            <span className="hidden busuanzi_container_page_pv mr-2">
-                    <i className='mr-1 fas fa-eye' />
-                    &nbsp;
-                    <span className="mr-2 busuanzi_value_page_pv" />
-                </span>
              </nav>
             </>}
 

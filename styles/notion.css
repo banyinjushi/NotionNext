@@ -543,7 +543,7 @@ summary > .notion-h {
   width: 100%;
   white-space: pre-wrap;
   word-break: break-word;
-  border-left: 3px solid currentcolor;
+  border-left: 1px solid currentcolor;
   padding: 0.2em 0.9em;
   margin: 6px 0;
   font-size: 1.2em;
@@ -1953,14 +1953,14 @@ svg + .notion-page-title-text {
 /* https://github.com/kchen0x */
 .notion-quote {
   display: block;
-  border-radius: 5px;
+  border-radius: 1px;
   border-color: var(--notion-blue);
   border-left-color: var(--notion-blue);
-  background-color: var(--notion-blue_background_co);
+  /* background-color: var(--notion-blue_background_co); */
   width: 100%;
   white-space: pre-wrap;
   word-break: break-word;
-  border-left: 10px solid;
+  border-left: 3px solid;
   padding: 0.2em 0.9em;
   margin: 6px 0;
   font-size: 1em;
