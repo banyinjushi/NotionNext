@@ -15,20 +15,25 @@ export const ArticleFooter = props => {
 
   return <div className="flex justify-between font-medium text-gray-500 dark:text-gray-400">
   <a>
-    <button
+    <span className="hidden busuanzi_container_page_pv mr-2">
+                    <i className='mr-1 fas fa-eye' />阅读
+                    &nbsp;
+                    <span className="mr-2 busuanzi_value_page_pv" />
+                </span>
+    {/* <button
       onClick={() => router.push(BLOG.path || '/')}
       className="mt-2 cursor-pointer hover:text-black dark:hover:text-gray-100"
     >
       ← {locale.POST.BACK}
-    </button>
+    </button> */}
   </a>
   <a>
-    <button
+    {/* <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className="mt-2 cursor-pointer hover:text-black dark:hover:text-gray-100"
     >
       ↑ {locale.POST.TOP}
-    </button>
+    </button> */}
   </a>
 </div>
 }
