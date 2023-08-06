@@ -182,6 +182,8 @@ const LayoutSlug = props => {
                     <NotionPage post={post} />
                     <ShareBar post={post} />
                     <ArticleFooter post={post}/>
+                    <div style={{ height: "200px" }}></div> 
+                    <hr style={{ color: "#333", backgroundColor: "#333", height: "1px" }} />  
                     <Comment frontMatter={post} />
                 </>
             </div>}
