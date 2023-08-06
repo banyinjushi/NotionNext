@@ -5,7 +5,7 @@ import Vercel from '@/components/Vercel'
 export const Footer = (props) => {
   const d = new Date()
   const currentYear = d.getFullYear()
-  const { post } = props
+  const { post, postCount } = props
   const fullWidth = post?.fullWidth ?? false
 
   const copyrightDate = (function() {
@@ -24,10 +24,19 @@ export const Footer = (props) => {
      <hr className="border-gray-200 dark:border-gray-600" />
      <div className="my-4 text-sm leading-6">
        <div className="flex align-baseline justify-between flex-wrap">
-         <p>
-           © {BLOG.AUTHOR} {copyrightDate}
-         </p>
+         {/* <p> */}
+         <div className='flex justify-between'>
+          <div>文章数:</div>
+          <div>{postCount}</div>
+        </div>
+        <div className='flex justify-between'>
+          <div>访客数:</div>
+          <div className='busuanzi_value_site_uv' />
+        </div>
+        {/* </p> */}
+        <p className="flex justify-between">
          <Vercel />
+        </p>
        </div>
      </div>
    </footer>
