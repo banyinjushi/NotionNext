@@ -10,6 +10,7 @@ import { useGlobal } from '@/lib/global'
  * @returns
  */
 export const ArticleFooter = props => {
+  const { post } = props
   const router = useRouter()
   const { locale } = useGlobal()
 
@@ -20,20 +21,9 @@ export const ArticleFooter = props => {
                     &nbsp;
                     <span className="mr-2 busuanzi_value_page_pv" />
                 </span>
-    {/* <button
-      onClick={() => router.push(BLOG.path || '/')}
-      className="mt-2 cursor-pointer hover:text-black dark:hover:text-gray-100"
-    >
-      ← {locale.POST.BACK}
-    </button> */}
   </a>
   <a>
-    {/* <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="mt-2 cursor-pointer hover:text-black dark:hover:text-gray-100"
-    >
-      ↑ {locale.POST.TOP}
-    </button> */}
+    最后修改时间  {post?.lastEditedDay}
   </a>
 </div>
 }

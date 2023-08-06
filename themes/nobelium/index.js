@@ -181,8 +181,8 @@ const LayoutSlug = props => {
                     <ArticleInfo post={post} />
                     <NotionPage post={post} />
                     <ShareBar post={post} />
+                    <ArticleFooter post={post}/>
                     <Comment frontMatter={post} />
-                    <ArticleFooter />
                 </>
             </div>}
 
