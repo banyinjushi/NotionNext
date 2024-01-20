@@ -20,8 +20,11 @@ export const BlogListPage = props => {
       <div className="w-full md:pr-12 mb-12">
 
             <div id="posts-wrapper">
-                {posts?.map(post => (
-                   <BlogPost key={post.id} post={post}/>
+                {posts?.map((post, index) => (
+                    <React.Fragment key={post.id}>
+                        <BlogPost post={post} />
+                        {index < posts.length - 1 && <div className="text-center my-4">博客</div>}
+                    </React.Fragment>
                 ))}
             </div>
 
