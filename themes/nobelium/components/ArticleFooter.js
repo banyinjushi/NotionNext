@@ -19,7 +19,7 @@ export const ArticleFooter = props => {
     <span className="hidden busuanzi_container_page_pv mr-2">
                     <i className='mr-1 fas fa-eye' />阅读
                     &nbsp;
-                    <span className="mr-2 busuanzi_value_page_uv" />
+                    <span className="mr-2 busuanzi_value_page_pv" />
                 </span>
   </a>
   <a>
