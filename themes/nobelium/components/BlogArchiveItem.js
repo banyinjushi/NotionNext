@@ -7,10 +7,12 @@ import Link from 'next/link'
  * @returns
  */
 export default function BlogArchiveItem({ archiveTitle, archivePosts }) {
+  const postCount = archivePosts[archiveTitle].length;
+
   return (
         <div key={archiveTitle}>
             <div id={archiveTitle} className="pt-16 pb-4 text-3xl dark:text-gray-300" >
-                {archiveTitle}
+                {archiveTitle}({postCount}) {/* 在标题后显示文章数量 */}
             </div>
 
             <ul>
