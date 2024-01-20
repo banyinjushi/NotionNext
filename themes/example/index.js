@@ -1,6 +1,5 @@
 'use client'
 
-import BLOG from '@/blog.config'
 import CONFIG from './config'
 import { useEffect } from 'react'
 import { Header } from './components/Header'
@@ -27,6 +26,7 @@ import { useRouter } from 'next/router'
 import { Transition } from '@headlessui/react'
 import { Style } from './style'
 import CommonHead from '@/components/CommonHead'
+import { siteConfig } from '@/lib/config'
 
 /**
  * 基础布局框架
@@ -37,7 +37,7 @@ import CommonHead from '@/components/CommonHead'
  */
 const LayoutBase = props => {
   const { children, slotTop, meta } = props
-  const { onLoading } = useGlobal()
+  const { onLoading, fullWidth } = useGlobal()
 
   // 增加一个状态以触发 Transition 组件的动画
   //   const [showTransition, setShowTransition] = useState(true)
@@ -65,18 +65,18 @@ const LayoutBase = props => {
             <div id='container-inner' className="w-full relative z-10">
 
                 {/* 标题栏 */}
-                <Title {...props} />
+                {fullWidth ? null : <Title {...props} />}
 
-                <div id='container-wrapper' className={(BLOG.LAYOUT_SIDEBAR_REVERSE ? 'flex-row-reverse' : '') + 'relative container mx-auto justify-center md:flex items-start py-8 px-2'}>
+                <div id='container-wrapper' className={(JSON.parse(siteConfig('LAYOUT_SIDEBAR_REVERSE')) ? 'flex-row-reverse' : '') + 'relative container mx-auto justify-center md:flex items-start py-8 px-2'}>
 
                     {/* 内容 */}
-                    <div className='w-full max-w-3xl xl:px-14 lg:px-4 '>
+                    <div className={`w-full ${fullWidth ? '' : 'max-w-3xl'} xl:px-14 lg:px-4`}>
                         <Transition
                             show={!onLoading}
                             appear={true}
                             enter="transition ease-in-out duration-700 transform order-first"
                             enterFrom="opacity-0 translate-y-16"
-                            enterTo="opacity-100 translate-y-0"
+                            enterTo="opacity-100"
                             leave="transition ease-in-out duration-300 transform"
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 -translate-y-16"
@@ -89,7 +89,7 @@ const LayoutBase = props => {
                     </div>
 
                     {/* 侧边栏 */}
-                    <SideBar {...props} />
+                    {!fullWidth && <SideBar {...props} />}
 
                 </div>
 
@@ -123,15 +123,18 @@ const LayoutIndex = props => {
 const LayoutPostList = props => {
   const { category, tag } = props
   // 顶部如果是按照分类或标签查看文章列表，列表顶部嵌入一个横幅
+  // 如果是搜索，则列表顶部嵌入 搜索框
   let slotTop = null
   if (category) {
     slotTop = <div className='pb-12'><i className="mr-1 fas fa-folder-open" />{category}</div>
   } else if (tag) {
     slotTop = <div className='pb-12'>#{tag}</div>
+  } else if (props.slotTop) {
+    slotTop = props.slotTop
   }
   return (
         <LayoutBase {...props} slotTop={slotTop}>
-            {BLOG.POST_LIST_STYLE === 'page' ? <BlogListPage {...props} /> : <BlogListScroll {...props} />}
+            {siteConfig('POST_LIST_STYLE') === 'page' ? <BlogListPage {...props} /> : <BlogListScroll {...props} />}
         </LayoutBase>
   )
 }

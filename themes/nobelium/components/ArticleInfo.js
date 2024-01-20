@@ -1,19 +1,19 @@
 
 import Image from 'next/image'
-import BLOG from '@/blog.config'
 import TagItem from './TagItem'
 import md5 from 'js-md5'
+import { siteConfig } from '@/lib/config'
 
 export const ArticleInfo = (props) => {
   const { post } = props
 
-  const emailHash = md5(BLOG.CONTACT_EMAIL)
+  const emailHash = md5(siteConfig('CONTACT_EMAIL', '#'))
 
   return <section className="flex-wrap flex mt-2 text-gray--600 dark:text-gray-400 font-light leading-8">
         <div>
 
             <div className="font-bold text-3xl text-black dark:text-white">
-            {post?.title}
+                {post?.title}
             </div>
             {post?.type !== 'Page' && <>
             <nav className="flex mt-4 items-start text-gray-500 dark:text-gray-400">

@@ -1,4 +1,3 @@
-import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import { useGlobal } from '@/lib/global'
 
