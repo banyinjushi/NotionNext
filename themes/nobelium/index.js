@@ -152,16 +152,33 @@ const LayoutSearch = props => {
  * @param {*} props
  * @returns
  */
+// const LayoutArchive = props => {
+//   const { archivePosts } = props
+//   return (
+//         <LayoutBase {...props}>
+//             <div className="mb-10 pb-20 md:py-12 p-3  min-h-screen w-full">
+//                 {Object.keys(archivePosts).map(archiveTitle => <BlogArchiveItem key={archiveTitle} archiveTitle={archiveTitle} archivePosts={archivePosts} />)}
+//             </div>
+//         </LayoutBase>
+//   )
+// }
+
 const LayoutArchive = props => {
-  const { archivePosts } = props
+  const { archivePosts } = props;
+
+  // 对年份进行降序排序
+  const sortedYears = Object.keys(archivePosts).sort((a, b) => b.localeCompare(a));
+
   return (
-        <LayoutBase {...props}>
-            <div className="mb-10 pb-20 md:py-12 p-3  min-h-screen w-full">
-                {Object.keys(archivePosts).map(archiveTitle => <BlogArchiveItem key={archiveTitle} archiveTitle={archiveTitle} archivePosts={archivePosts} />)}
-            </div>
-        </LayoutBase>
-  )
-}
+    <LayoutBase {...props}>
+      <div className="mb-10 pb-20 md:py-12 p-3  min-h-screen w-full">
+        {sortedYears.map(archiveTitle => (
+          <BlogArchiveItem key={archiveTitle} archiveTitle={archiveTitle} archivePosts={archivePosts} />
+        ))}
+      </div>
+    </LayoutBase>
+  );
+};
 
 /**
  * 文章详情
