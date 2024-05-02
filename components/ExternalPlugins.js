@@ -73,7 +73,6 @@ const ExternalPlugin = (props) => {
   const DIFY_CHATBOT_ENABLED = siteConfig('DIFY_CHATBOT_ENABLED')
   const CLARITY_ID = siteConfig('CLARITY_ID')
 
-
   if (DISABLE_PLUGIN) {
     return null
   }
