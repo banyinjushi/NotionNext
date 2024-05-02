@@ -22,7 +22,7 @@ export const BlogListPage = props => {
             <div id="posts-wrapper">
                 {/* {posts?.map(post => ( */}
                 {/* {posts?.filter(post => post.tags == '精选').map(post => ( */}
-                {posts?.filter(post => post.tags.includes('精选')).map(post => (
+                {posts?.filter(post => post.tags && post.tags.includes('精选')).map(post => (
                    <BlogPost key={post.id} post={post}/>
                 ))}
             </div>
