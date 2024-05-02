@@ -140,7 +140,7 @@ const ExternalPlugin = (props) => {
             }}
           />
         </>
-       )}
+        )}
 
         {COMMENT_DAO_VOICE_ID && (<>
             {/* DaoVoice 反馈 */}
