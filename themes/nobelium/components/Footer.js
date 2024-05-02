@@ -32,7 +32,7 @@ export const Footer = (props) => {
         {/* </p> */}
         <p className="flex justify-between">
          {/* <Vercel /> */}
-         公众号：须臾所思
+         公众号/知乎/雪球同名
         </p>
        </div>
      </div>
