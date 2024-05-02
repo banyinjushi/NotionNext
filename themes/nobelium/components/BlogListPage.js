@@ -19,7 +19,7 @@ export const BlogListPage = props => {
   return (
       <div className="w-full md:pr-12 my-6">
             <h2 style={{ marginBottom: '3rem' }} className="text-2xl font-bold">Most Clicked:</h2>
-            <div id="posts-wrapper">
+            <div id="posts-wrapper" className="pl-4">
                 {/* {posts?.map(post => ( */}
                 {/* {posts?.filter(post => post.tags == '精选').map(post => ( */}
                 {posts?.filter(post => post.tags && post.tags.includes('精选')).map(post => (
