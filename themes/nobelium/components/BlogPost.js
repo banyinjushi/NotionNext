@@ -7,9 +7,9 @@ const BlogPost = ({ post }) => {
 
       <article key={post.id} className="mb-6 md:mb-8">
         <header className="flex flex-col justify-between md:flex-row md:items-baseline">
-          <span className="flex-shrink-0 text-gray-600 dark:text-gray-400">
-              {post.category}
-          </span>
+          {/* <span className="flex-shrink-0 text-gray-600 dark:text-gray-400"> */}
+              {/* {post.category} */}
+          {/* </span> */}
           <h2 className="text-lg md:text-xl font-medium mb-2 cursor-pointer text-black dark:text-gray-100">
             {post.title}
           </h2>
