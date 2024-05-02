@@ -13,6 +13,9 @@ const BlogPost = ({ post }) => {
           <time className="flex-shrink-0 text-gray-600 dark:text-gray-400">
             {post?.publishDay}
           </time>
+          <span className="ml-4 text-sm">
+              ({post.category})
+          </span>
         </header>
         <main>
           <p className="hidden md:block leading-8 text-gray-700 dark:text-gray-300">
