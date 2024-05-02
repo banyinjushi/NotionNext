@@ -71,6 +71,8 @@ const ExternalPlugin = (props) => {
   const ANALYTICS_51LA_ID = siteConfig('ANALYTICS_51LA_ID')
   const ANALYTICS_51LA_CK = siteConfig('ANALYTICS_51LA_CK')
   const DIFY_CHATBOT_ENABLED = siteConfig('DIFY_CHATBOT_ENABLED')
+  const CLARITY_ID = siteConfig('CLARITY_ID')
+
 
   if (DISABLE_PLUGIN) {
     return null
@@ -122,6 +124,23 @@ const ExternalPlugin = (props) => {
                     `
             }} />
         </>)}
+
+        {CLARITY_ID && (
+        <>
+          <script
+            async
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${CLARITY_ID}");
+                `
+            }}
+          />
+        </>
+       )}
 
         {COMMENT_DAO_VOICE_ID && (<>
             {/* DaoVoice 反馈 */}
